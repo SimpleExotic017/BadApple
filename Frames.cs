@@ -18,7 +18,7 @@ namespace BadApple
             string img = "";
             string lastimg = "";
             Console.BackgroundColor = ConsoleColor.Black;
-            for (int frameIndex = 5573; frameIndex <= 5572; frameIndex++)
+            for (int frameIndex = 1; frameIndex <= 5572; frameIndex++)
             {
                 if (frameIndex < 10)
                 {
