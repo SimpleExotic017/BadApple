@@ -8,8 +8,6 @@ namespace BadApple
 {
     internal class Frames
     {
-        //█
-        //█
         private static string pixel = "█";
 
         public static void Start()
@@ -23,19 +21,19 @@ namespace BadApple
                 if (frameIndex < 10)
                 {
                     frame = File.ReadAllLines(
-                        $"C:\\Users\\matth\\school\\side-projects\\BadApple\\frames-ascii\\out000{frameIndex}.jpg.txt"
+                        $"..\\..\\..\\frames-ascii\\out000{frameIndex}.jpg.txt"
                     );
                 }
                 else if (frameIndex < 100)
                 {
                     frame = File.ReadAllLines(
-                        $"C:\\Users\\matth\\school\\side-projects\\BadApple\\frames-ascii\\out00{frameIndex}.jpg.txt"
+                        $"C:..\\..\\..\\frames-ascii\\out00{frameIndex}.jpg.txt"
                     );
                 }
                 else if (frameIndex < 1000)
                 {
                     frame = File.ReadAllLines(
-                        $"C:\\Users\\matth\\school\\side-projects\\BadApple\\frames-ascii\\out0{frameIndex}.jpg.txt"
+                        $"..\\..\\..\\frames-ascii\\out0{frameIndex}.jpg.txt"
                     );
                 }
                 else
@@ -81,7 +79,7 @@ namespace BadApple
                     }
                 }
                 lastimg = img;
-                //96
+                
                 Thread.Sleep(20);
             }
             Console.Clear();
