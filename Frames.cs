@@ -39,7 +39,7 @@ namespace BadApple
                 else
                 {
                     frame = File.ReadAllLines(
-                        $"C:\\Users\\matth\\school\\side-projects\\BadApple\\frames-ascii\\out{frameIndex}.jpg.txt"
+                        $"..\\..\\..\\frames-ascii\\out{frameIndex}.jpg.txt"
                     );
                 }
                 img = "";
