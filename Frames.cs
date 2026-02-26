@@ -88,11 +88,11 @@ namespace BadApple
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
-            Console.WriteLine("\t\t\tThank you for watching");
-            Console.WriteLine("\t\t\t    Programmed by:");
-            Console.WriteLine("\t\t\t\tHell-C");
-            Console.WriteLine("\t\t\t\t aka:");
-            Console.WriteLine("\t\t\tMatthias van Hogerhuis");
+            Console.WriteLine("\t\t\t\t   Thank you for watching");
+            Console.WriteLine("\t\t\t\t       Programmed by:");
+            Console.WriteLine("\t\t\t\t\t    Hell-C");
+            Console.WriteLine("\t\t\t\t\t     aka:");
+            Console.WriteLine("\t\t\t\t    Matthias van Hogerhuis");
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
