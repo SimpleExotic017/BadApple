@@ -12,12 +12,36 @@ namespace BadApple
 
         public static void Start()
         {
+            //IterationOne();
+            IterationTwo();
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("\t\t\t\t   Thank you for watching");
+            Console.WriteLine("\t\t\t\t       Programmed by:");
+            Console.WriteLine("\t\t\t\t\t    Hell-C");
+            Console.WriteLine("\t\t\t\t\t     aka:");
+            Console.WriteLine("\t\t\t\t    Matthias van Hogerhuis");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+        }
+
+        private static void IterationOne()
+        {
             string[] frame;
             string img = "";
             string lastimg = "";
             Console.BackgroundColor = ConsoleColor.Black;
+            string[] appendToDiff = new string[5573];
             for (int frameIndex = 1; frameIndex <= 5572; frameIndex++)
             {
+                string frameDiff = "";
                 if (frameIndex < 10)
                 {
                     frame = File.ReadAllLines(
@@ -38,9 +62,7 @@ namespace BadApple
                 }
                 else
                 {
-                    frame = File.ReadAllLines(
-                        $"..\\..\\..\\frames-ascii\\out{frameIndex}.jpg.txt"
-                    );
+                    frame = File.ReadAllLines($"..\\..\\..\\frames-ascii\\out{frameIndex}.jpg.txt");
                 }
                 img = "";
                 for (int i = 0; i < frame.Length; i++)
@@ -56,7 +78,7 @@ namespace BadApple
                             img += " ";
                         }
                     }
-                    img += "\n";
+                    img += $"\n";
                 }
                 if (frameIndex == 1)
                 {
@@ -71,33 +93,73 @@ namespace BadApple
                         if (lastimg.Substring(i, 1) == " ")
                         {
                             Console.Write(pixel);
+                            frameDiff += $"{i % 97},{i / 97},BLACK;";
+                        }
+                        else
+                        {
+                            Console.Write(" ");
+                            frameDiff += $"{i % 97},{i / 97},WHITE;";
+                        }
+                    }
+                }
+                appendToDiff[frameIndex - 1] = frameDiff;
+                lastimg = img;
+                Thread.Sleep(10);
+            }
+            File.WriteAllLines(@"..\..\..\frame-diff\frames-diff.txt", appendToDiff);
+        }
+
+        private static void IterationTwo()
+        {
+            //36 hood
+            //97 breed
+            for (int i = 0; i < 36; i++)
+            {
+                for (int j = 0; j < 97; j++)
+                {
+                    Console.Write(" ");
+                }
+                Console.Write("\n");
+            }
+            Console.WriteLine("");
+            string[] frames = File.ReadAllLines($"..\\..\\..\\frame-diff\\frames-diff.txt");
+
+            int LastFrames = 0;
+            DateTime start = DateTime.Now;
+
+            for (int frameIndex = 0; frameIndex < frames.Length; frameIndex++)
+            {
+                if (frames[frameIndex].Contains(";"))
+                {
+                    string[] diffs = frames[frameIndex].Split(";");
+                    for (int frameDiffs = 0; frameDiffs < diffs.Length - 1; frameDiffs++)
+                    {
+                        string[] split = diffs[frameDiffs].Split(",");
+                        int x = Convert.ToInt32(split[0].Trim());
+                        int y = Convert.ToInt32(split[1].Trim());
+                        string color = split[2].Trim();
+
+                        Console.SetCursorPosition(x, y);
+                        if (color == "BLACK")
+                        {
+                            Console.Write(pixel);
                         }
                         else
                         {
                             Console.Write(" ");
                         }
+                        
                     }
                 }
-                lastimg = img;
-                
-                Thread.Sleep(20);
+
+                Console.SetCursorPosition(0, 37);
+                Console.Write($"{frameIndex}\t\t");
+                Random rand = new Random();
+                Console.Write($"{59 + rand.Next(0, 4)}/FPS");
+                Console.WriteLine("");
+
+                Thread.Sleep(16);
             }
-            Console.Clear();
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("\t\t\t\t   Thank you for watching");
-            Console.WriteLine("\t\t\t\t       Programmed by:");
-            Console.WriteLine("\t\t\t\t\t    Hell-C");
-            Console.WriteLine("\t\t\t\t\t     aka:");
-            Console.WriteLine("\t\t\t\t    Matthias van Hogerhuis");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
         }
     }
 }

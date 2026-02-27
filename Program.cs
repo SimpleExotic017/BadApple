@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.SetWindowSize(96,37);
+            Console.SetWindowSize(100,40);
             Console.CursorVisible = false;
             Frames.Start();
             Console.ReadLine();
