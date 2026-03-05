@@ -8,7 +8,7 @@ namespace BadApple
 {
     internal class Frames
     {
-        private static string pixel = "█";
+        private static string pixel = "3";
 
         public static void Start()
         {
