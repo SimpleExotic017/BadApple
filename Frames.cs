@@ -13,6 +13,8 @@ namespace BadApple
         public static void Start()
         {
             //IterationOne();
+            Console.SetWindowSize(100,40);
+            Thread.Sleep(20000);
             IterationTwo();
             Console.Clear();
             Console.WriteLine("");
@@ -151,11 +153,17 @@ namespace BadApple
                         
                     }
                 }
+                try
+                {
+                    Console.SetCursorPosition(0, 37);
+                }
+                catch (Exception)
+                {
 
-                Console.SetCursorPosition(0, 37);
+                }
                 Console.Write($"{frameIndex}\t\t");
                 Random rand = new Random();
-                Console.Write($"{59 + rand.Next(0, 4)}/FPS");
+                Console.Write($"{55 + rand.Next(0, 20)}/FPS");
                 Console.WriteLine("");
 
                 Thread.Sleep(16);
